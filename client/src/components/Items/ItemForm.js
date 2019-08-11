@@ -22,6 +22,7 @@ class ItemForm extends Component {
     return (
       <Form onSubmit={this.handleSubmit}>
         <Form.Input 
+          inline
           label='Task'
           placeholder="Add a task"
           required
@@ -30,7 +31,13 @@ class ItemForm extends Component {
           onChange={this.handleChange}
         />
 
-        <Form.Button>Submit</Form.Button>
+        <Form.Button
+          size='small'
+          color='green'
+        >
+          Submit
+        </Form.Button>
+        <hr />
       </Form>
     )
   }

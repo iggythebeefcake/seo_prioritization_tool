@@ -1,8 +1,9 @@
 import React, { Component } from 'react';
 import { Container } from 'semantic-ui-react';
-import ItemForm from './components/Items/ItemForm';
 import axios from 'axios';
 import ItemList from './components/Items/ItemList';
+import Hero from './components/Hero/Hero';
+import ItemForm from './components/Items/ItemForm';
 
 class App extends Component {
   state = { items: [] }
@@ -58,6 +59,7 @@ class App extends Component {
     const { items } = this.state
     return (
       <Container>
+        <Hero/>
         <ItemForm add={this.addTask} />
         <ItemList 
           items={items} 

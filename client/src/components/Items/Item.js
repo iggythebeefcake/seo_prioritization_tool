@@ -1,10 +1,21 @@
 import React from 'react';
-import { Checkbox, Button, Icon } from 'semantic-ui-react';
+import { Checkbox, Button, Icon, Label } from 'semantic-ui-react';
 
 const styles = {
   complete: {
     textDecoration: 'line-through',
-    color: 'grey'
+    color: 'grey',
+    display: 'inline-block',
+    padding: '10px'
+  },
+  row: {
+    display: 'inline-block',
+    verticalAlign: 'middle',
+    padding: '10px'
+  },
+  align: {
+    display: 'inline-block',
+    float: 'absolute'
   }
 }
 
@@ -15,17 +26,20 @@ const Item = ({ id, name, complete, update, deleteItem }) => (
         defaultChecked={complete}
         onClick={() => update(id)}
       />
-      <div style={ complete ? styles.complete : {} }>
+      <div style={ complete ? styles.complete : styles.row }>
         <h1>{name}</h1>
       </div>
+      <div style={ styles.row }>
+        <Button 
+          compact
+          color='red'
+          onClick={() => deleteItem(id)}
+          size='tiny'
+        >
+          Delete
+        </Button>
+      </div>
     </div>
-    <Button
-      icon
-      color='red'
-      onClick={() => deleteItem(id)}
-    >
-      <Icon name='trash' />
-    </Button>
   </div>
 )
 
